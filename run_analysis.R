@@ -40,8 +40,8 @@ comb <- rbind(train, test, fill=TRUE)
 
 #Create independent tidy dataset
 comb[["Activity"]] <- factor(comb[, Activity]
-                             , levels = activityLabels[["classLabels"]]
-                             , labels = activityLabels[["activityName"]])
+                             , levels = labels[["classLabels"]]
+                             , labels = labels[["activityName"]])
 comb[["SubjectNum"]] <- as.factor(comb[, SubjectNum])
 comb <- reshape2::melt(data = comb, id = c("SubjectNum", "Activity"))
 comb <- reshape2::dcast(data = comb, 
